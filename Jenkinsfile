@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'linux-nade'}
+    agent {label 'linux-node'}
 
     stages {
         stage ('Clean Stage') {
