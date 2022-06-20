@@ -1,14 +1,14 @@
 pipeline {
-    agent {label 'linux-node'}
+    agent any
 
     stages {
-        stage ('Compile Stage') {
+        stage ('Clean Stage') {
             tools {
                     maven 'maven3.8.5'
             }
 
             steps {
-                    sh 'mvn clean compile'
+                    sh 'mvn clean'
                 }
             }
         
