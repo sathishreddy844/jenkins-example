@@ -13,13 +13,13 @@ pipeline {
             }
         
 
-        stage ('Testing Stage') {
+        stage ('compile Stage') {
             tools {
                 maven 'maven3.8.5'
             }
 
             steps {
-                    sh 'mvn test'
+                    sh 'mvn compile'
                 }
             }
         stage ('package') {
