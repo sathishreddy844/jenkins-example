@@ -1,32 +1,38 @@
 pipeline {
-    agent any
+    agent {label 'linux-node'}
 
     stages {
         stage ('Compile Stage') {
+            tools {
+                    maven 'maven3.8.5'
+            }
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean compile'
                 }
             }
-        }
+        
 
         stage ('Testing Stage') {
+            tools {
+                maven 'maven3.8.1'
+            }
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn test'
                 }
             }
-        }
+        
 
 
-        stage ('Deployment Stage') {
+        stage ('package') {
+            tools {
+                maven 'maven3.6.0'
+            }
             steps {
-                withMaven(maven : 'maven_3_5_0') {
+           
                     sh 'mvn deploy'
                 }
             }
         }
     }
-}
