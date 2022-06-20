@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'linux-node'}
 
     stages {
         stage ('Clean Stage') {
@@ -15,7 +15,7 @@ pipeline {
 
         stage ('Testing Stage') {
             tools {
-                maven 'maven3.8.1'
+                maven 'maven3.8.5'
             }
 
             steps {
@@ -24,7 +24,7 @@ pipeline {
             }
         stage ('package') {
             tools {
-                maven 'maven3.6.0'
+                maven 'maven3.8.5'
             }
             steps {
            
