@@ -12,24 +12,5 @@ pipeline {
                 }
             }
         
-
-        stage ('compile Stage') {
-            tools {
-                maven 'maven3.8.5'
-            }
-
-            steps {
-                    sh 'mvn compile'
-                }
-            }
-        stage ('package') {
-            tools {
-                maven 'maven3.8.5'
-            }
-            steps {
-           
-                    sh 'mvn package'
-                }
-            }
         }
     }
