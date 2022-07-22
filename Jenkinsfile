@@ -12,6 +12,9 @@ pipeline {
                 }
             }
         stage ('install'){
+             tools {
+                    maven 'mvn3.8.5'
+            }
             steps{
             sh 'mvn install'
             }
